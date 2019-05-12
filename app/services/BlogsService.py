@@ -12,7 +12,7 @@ class BlogsService(implements(BlogsServiceInterface)):
 
         :type blogs_repository: BlogsRepositoryInterface
         """
-        self._propertyRepository = blogs_repository
+        self._blogs_repository = blogs_repository
 
     def get_blog(self, blog_id):
-        return self._propertyRepository.fetch_by_id(blog_id)
+        return self._blogs_repository.fetch_by_id(blog_id)

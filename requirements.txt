@@ -19,3 +19,7 @@ dependency-injector
 
 #https://interface.readthedocs.io/en/latest/
 python-interface
+
+psycopg2
+
+Flask-SQLAlchemy

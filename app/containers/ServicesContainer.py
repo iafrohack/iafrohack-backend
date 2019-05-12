@@ -8,9 +8,8 @@ from .RepositoriesContainer import RepositoriesContainer
 
 repositories_container = RepositoriesContainer()
 
-
 class ServicesContainer(containers.DeclarativeContainer):
-    """IoC container of Service."""
+    """IoC container of Services."""
 
     blogs = providers.Factory(BlogsService,
                                  repositories_container.blogs()
