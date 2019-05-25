@@ -1,3 +1,4 @@
 .idea
 data/setup_steps.txt
 __pycache__*
+app/config/gcloud/*

@@ -1,5 +1,14 @@
 version: '3'
 services:
+    cloudsql-proxy:
+      container_name: cloudsql-proxy
+      image: gcr.io/cloudsql-docker/gce-proxy:1.11
+      command: /cloud_sql_proxy --dir=/root/.config/gcloud -instances=iafrohack:us-east1:iafrohack=tcp:0.0.0.0:5432 -credential_file=/root/.config/gcloud/iafrohack-client.json
+      ports:
+        - 5432:5432
+      volumes:
+        - ~/.config/gcloud:/root/.config/gcloud
+      restart: always
     api:
       build:
         context: .
@@ -11,7 +20,9 @@ services:
         - "80:5000"
       volumes:
         - .:/usr/src/app
+        - ~/.config/gcloud/postgres_uri.json:/usr/config/gcloud/postgres_uri.json
       depends_on:
+        - cloudsql-proxy
         - mongodb
       restart: unless-stopped
     mongodb:
