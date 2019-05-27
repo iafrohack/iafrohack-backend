@@ -28,6 +28,7 @@ class BlogsController(object):
             error_message = ApiResponseHandler.UNKNOWN_ERROR_MESSAGE
             return self._api_response_handler.bad_request(error_message, e)
 
+    # TODO:: implement limit & offset for the blogs
     def list_all_blog_posts(self) -> Response:
 
         try:

@@ -16,17 +16,23 @@ class BlogsService(implements(BlogsServiceInterface)):
 
     def get_blog_post(self, blog_id) -> Dict:
 
-        blog_details = self._blogs_repository.fetch_post_by_id(blog_id)
+        blog_post = self._blogs_repository.fetch_post_by_id(blog_id)
 
-        if not blog_details.id:
+        if not blog_post.id:
             return {}
 
+        blog_post_details = blog_post.content
+
         return {
-            'id': blog_details.id,
-            'content': blog_details.content,
-            'createdAt': blog_details.created_at.isoformat(' '),
-            'lastUpdatedAt': blog_details.last_updated_at.isoformat(' ')
-        }
+                'id': blog_post.id,
+                'title':  blog_post_details['title'],
+                'summary': blog_post_details['summary'],
+                'backgroundImage': blog_post_details['background_image'],
+                'content': blog_post_details['content'],
+                'createdAt': blog_post.created_at.isoformat(' '),
+                'lastUpdatedAt': blog_post.last_updated_at.isoformat(' '),
+                }
+
 
     def get_all_blog_posts(self) -> List:
         blog_posts = self._blogs_repository.fetch_all_posts()
@@ -34,10 +40,15 @@ class BlogsService(implements(BlogsServiceInterface)):
         all_blog_posts = []
 
         for blog_details in blog_posts:
+
+            blog_post_details = blog_details.content
+
             all_blog_posts.append(
               {
                 'id': blog_details.id,
-                'content': blog_details.content,
+                'title':  blog_post_details['title'],
+                'summary': blog_post_details['summary'],
+                'backgroundImage': blog_post_details['background_image'],
                 'createdAt': blog_details.created_at.isoformat(' '),
                 'lastUpdatedAt': blog_details.last_updated_at.isoformat(' ')
              })
