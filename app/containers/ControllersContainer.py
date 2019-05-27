@@ -12,4 +12,5 @@ class ControllersContainer(containers.DeclarativeContainer):
     """IoC container of Controllers """
 
     blogs = providers.Factory(BlogsController,
-                                 services_container.blogs())
+                              services_container.blogs(),
+                              services_container.api_response_handler())

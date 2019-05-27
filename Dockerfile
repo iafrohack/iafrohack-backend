@@ -1,12 +1,13 @@
 FROM python:3.7.3-stretch
 
-RUN pip install python-dotenv
-
 WORKDIR /usr/src/app
 
 COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN mkdir -p /var/log/iafrohack/
+RUN > /var/log/iafrohack/iafrohack_logs.log
 
 COPY ./app/* ./
 
@@ -18,7 +19,7 @@ EXPOSE 80
 
 # Change owner of application files
 RUN chown -R iafrohack:iafrohackgroup /usr/src/app
-
+RUN chown -R iafrohack:iafrohackgroup /var/log/iafrohack/iafrohack_logs.log
 # Change user
 USER iafrohack
 

@@ -23,3 +23,7 @@ python-interface
 psycopg2
 
 Flask-SQLAlchemy
+
+typing
+
+python-dotenv

@@ -4,10 +4,12 @@ from routes import *
 from flask_sqlalchemy import SQLAlchemy
 from flask import g
 from containers.ConnectionsContainer import ConnectionsContainer
+from settings import APP_SECRET_KEY
 
 app = Eve()
 
 app.register_blueprint(routes)
+app.secret_key = APP_SECRET_KEY
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
