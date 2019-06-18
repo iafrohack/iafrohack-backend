@@ -10,6 +10,7 @@ services:
         - ~/.config/gcloud:/root/.config/gcloud
       restart: always
     api:
+      image: iafrohack/iafrohack-backend
       build:
         context: .
         args:
@@ -24,6 +25,6 @@ services:
       depends_on:
         - cloudsql-proxy
         - mongodb
-      restart: unless-stopped
+      restart: always
     mongodb:
         image: mongo

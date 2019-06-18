@@ -1,0 +1,7 @@
+
+steps:
+- name: ‘docker/compose:1.24.0’
+  args: [‘up’, ‘-d’]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 'iafrohack-backend:latest', 'gcr.io/iafrohack/iafrohack-backend:$COMMIT_SHA']
+  images: ['gcr.io/iafrohack/iafrohack-backend:$COMMIT_SHA']
