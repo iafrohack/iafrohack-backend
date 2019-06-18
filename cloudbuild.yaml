@@ -1,6 +1,6 @@
 
 steps:
-- name: "docker/compose"
+- name: "docker/compose:1.24.0"
   args: ["up", "-d", "--build"]
 - name: 'gcr.io/cloud-builders/docker'
   args: ['tag', 'iafrohack-backend:latest', 'gcr.io/iafrohack/iafrohack-backend:$COMMIT_SHA']
