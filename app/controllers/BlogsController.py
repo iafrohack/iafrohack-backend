@@ -19,6 +19,9 @@ class BlogsController(object):
         self._blogs_service = blogs_service
         self._api_response_handler = api_response_handler
 
+    def show_home(self):
+        return self._api_response_handler.success(json.dumps([]))
+
     def show_blog_post(self, blog_id) -> Response :
         try:
             blog_post = self._blogs_service.get_blog_post(blog_id)

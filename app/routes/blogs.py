@@ -3,6 +3,11 @@ from containers.ControllersContainer import ControllersContainer
 
 controllers_container = ControllersContainer()
 
+@routes.route('/', methods=['GET'])
+def show_home():
+    blogs_controller = controllers_container.blogs()
+    return blogs_controller.show_home()
+
 @routes.route('/posts/<blog_post_id>', methods=['GET'])
 def show_blog_post(blog_post_id):
     blogs_controller = controllers_container.blogs()
