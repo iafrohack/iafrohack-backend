@@ -10,6 +10,7 @@ services:
         - ~/.config/gcloud:/root/.config/gcloud
       restart: always
     api:
+      image: gcr.io/iafrohack/iafrohack-backend:latest
       build:
         context: .
         args:

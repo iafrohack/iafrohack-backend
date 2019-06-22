@@ -3,5 +3,13 @@ steps:
 - name: "docker/compose:1.24.0"
   args: ["up", "-d", "--build"]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'iafrohack-backend:latest', 'gcr.io/iafrohack/iafrohack-backend:$COMMIT_SHA']
-images: ['gcr.io/iafrohack/iafrohack-backend:$COMMIT_SHA']
+  args: ["push", "gcr.io/$PROJECT_ID/iafrohack-backend:latest"]
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - run
+  - iafrohack-backend
+  - --image=gcr.io/${PROJECT_ID}/iafrohack-backend:latest
+  - --port=5000
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=iafrohack-backend-cluster'
