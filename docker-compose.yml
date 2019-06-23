@@ -7,7 +7,7 @@ services:
       ports:
         - 5432:5432
       volumes:
-        - /home/jeanpaulmugabe/.config/gcloud:/var/lib/iafrohack/.config/gcloud
+        - $HOME/.config/gcloud:/var/lib/iafrohack/.config/gcloud
       restart: always
     api:
       image: gcr.io/iafrohack/iafrohack-backend:latest
@@ -21,7 +21,7 @@ services:
         - "80:5000"
       volumes:
         - .:/usr/src/app
-        - /home/jeanpaulmugabe/.config/gcloud/postgres_uri.json:/var/lib/iafrohack/.config/gcloud/postgres_uri.json
+        - $HOME/.config/gcloud/postgres_uri.json:/var/lib/iafrohack/.config/gcloud/postgres_uri.json
       depends_on:
         - cloudsql-proxy
         - mongodb
