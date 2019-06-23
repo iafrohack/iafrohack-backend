@@ -10,7 +10,7 @@ class Postgres(implements(ConnectionsProviderInterface)):
     @property
     def get_connection(self):
 
-        with open('/usr/config/gcloud/postgres_uri.json', 'r') as json_config:
+        with open('/var/lib/iafrohack/.config/gcloud/postgres_uri.json', 'r') as json_config:
             config_data = json_config.read()
 
         config = json.loads(config_data) # db connection config
