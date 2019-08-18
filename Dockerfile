@@ -26,4 +26,8 @@ USER iafrohack
 RUN wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
 RUN chmod +x cloud_sql_proxy
 
+RUN pip install --upgrade google-cloud-firestore
+
+ENV GOOGLE_APPLICATION_CREDENTIALS="/var/lib/iafrohack/.config/gcloud/iafrohack-firestore.json"
+
 CMD ["python", "./app/app.py"]

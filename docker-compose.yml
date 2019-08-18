@@ -22,6 +22,7 @@ services:
       volumes:
         - .:/usr/src/app
         - /home/jeanpaulmugabe/.config/gcloud/postgres_uri.json:/var/lib/iafrohack/.config/gcloud/postgres_uri.json
+        - /home/jeanpaulmugabe/.config/gcloud/iafrohack-firestore.json:/var/lib/iafrohack/.config/gcloud/iafrohack-firestore.json
       depends_on:
         - cloudsql-proxy
         - mongodb
