@@ -12,7 +12,7 @@ services:
         - "80:5000"
       volumes:
         - .:/usr/src/app
-        - /Users/jmugabe/.config/gcloud/iafrohack-firestore.json:/var/lib/iafrohack/.config/gcloud/iafrohack-firestore.json
+        - /home/jeanpaulmugabe/.config/gcloud/iafrohack-firestore.json:/var/lib/iafrohack/.config/gcloud/iafrohack-firestore.json
       depends_on:
         - mongodb
       restart: always
