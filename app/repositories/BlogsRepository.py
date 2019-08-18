@@ -1,5 +1,4 @@
 from interface import implements
-from sqlalchemy import desc
 from .interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
 from models.BlogPost import BlogPost
 from providers.connections.ConnectionsProviderInterface import ConnectionsProviderInterface

@@ -1,6 +1,3 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session
-from sqlalchemy.orm import sessionmaker
 from interface import implements
 from providers.connections.ConnectionsProviderInterface import ConnectionsProviderInterface
 import json

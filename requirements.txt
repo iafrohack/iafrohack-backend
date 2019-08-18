@@ -22,8 +22,10 @@ python-interface
 
 psycopg2
 
-Flask-SQLAlchemy
+#Flask-SQLAlchemy
 
 typing
 
 python-dotenv
+
+google-cloud-firestore

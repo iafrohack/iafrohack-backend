@@ -3,6 +3,7 @@ from interface import implements
 from .interfaces.BlogsServiceInterface import BlogsServiceInterface
 from repositories.interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
 from typing import Dict, List
+import html
 
 class BlogsService(implements(BlogsServiceInterface)):
 
@@ -29,9 +30,10 @@ class BlogsService(implements(BlogsServiceInterface)):
                 'title':  blog_post_details['title'],
                 'summary': blog_post_details['summary'],
                 'backgroundImage': blog_post_details['background_image'],
-                'content': blog_post_details['content'],
+                'content': html.unescape(blog_post_details['content']),
                 'createdAt': blog_details['created_at'].isoformat(' '),
                 'lastUpdatedAt': blog_details['last_updated_at'].isoformat(' '),
+                'publishedAt': blog_details['published_at'].isoformat(' '),
                 }
 
 
@@ -57,7 +59,8 @@ class BlogsService(implements(BlogsServiceInterface)):
                 'summary': blog_post_details['summary'],
                 'backgroundImage': blog_post_details['background_image'],
                 'createdAt': blog_details['created_at'].isoformat(' '),
-                'lastUpdatedAt': blog_details['last_updated_at'].isoformat(' ')
+                'lastUpdatedAt': blog_details['last_updated_at'].isoformat(' '),
+                'publishedAt': blog_details['published_at'].isoformat(' '),
              })
 
         return all_blog_posts
