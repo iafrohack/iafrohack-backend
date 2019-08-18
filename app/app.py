@@ -1,7 +1,6 @@
 # noinspection PyInterpreter
 from eve import Eve
 from routes import *
-from flask_sqlalchemy import SQLAlchemy
 from flask import g
 from containers.ConnectionsContainer import ConnectionsContainer
 from settings import APP_SECRET_KEY

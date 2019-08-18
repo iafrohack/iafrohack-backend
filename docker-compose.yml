@@ -1,14 +1,5 @@
 version: '3'
 services:
-    cloudsql-proxy:
-      container_name: cloudsql-proxy
-      image: gcr.io/cloudsql-docker/gce-proxy:1.11
-      command: /cloud_sql_proxy --dir=/var/lib/iafrohack/.config/gcloud -instances=iafrohack:us-east1:iafrohack=tcp:0.0.0.0:5432 -credential_file=/var/lib/iafrohack/.config/gcloud/iafrohack-client.json
-      ports:
-        - 5432:5432
-      volumes:
-        - /home/jeanpaulmugabe/.config/gcloud:/var/lib/iafrohack/.config/gcloud
-      restart: always
     api:
       image: gcr.io/iafrohack/iafrohack-backend:latest
       build:
@@ -21,9 +12,8 @@ services:
         - "80:5000"
       volumes:
         - .:/usr/src/app
-        - /home/jeanpaulmugabe/.config/gcloud/postgres_uri.json:/var/lib/iafrohack/.config/gcloud/postgres_uri.json
+        - /home/jeanpaulmugabe/.config/gcloud/iafrohack-firestore.json:/var/lib/iafrohack/.config/gcloud/iafrohack-firestore.json
       depends_on:
-        - cloudsql-proxy
         - mongodb
       restart: always
     mongodb:

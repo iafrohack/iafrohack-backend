@@ -1,17 +1,23 @@
 import datetime
-from sqlalchemy import Column, Integer, JSON, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+from models.Base import Base as BaseModel
 
-Base = declarative_base()
+class BlogPost(BaseModel):
 
-class BlogPost(Base):
-    __tablename__ = 'blog_posts'
-    id = Column(Integer, primary_key=True)
-    status_id = Column(Integer, nullable=False)
-    category_id = Column(Integer, nullable=False)
-    content = Column(JSON, nullable=False)
-    created_at = Column(DateTime, nullable=False)
-    last_updated_at = Column(DateTime, nullable=False)
+    def __init__(self, ):
+        self.id = blog_id
+        self.status_id = status_id
+        self.category_id = category_id
+        self.published_at = published_at
+        self.details = details
+        self.created_at = created_at
+        self.last_updated_at = last_updated_at
 
     def __repr__(self):
-        return '<BlogPost %r>' % self.content
+        return(
+            u'BlogPost(id={}, status_id={}, category_id={}, published_at={}, details={})'
+            .format(self.id, self.status_id, self.category_id, self.published_at,
+                    self.details))
+
+
+
+

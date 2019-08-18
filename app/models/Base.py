@@ -1,9 +1,8 @@
 
 
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+class Base(object):
 
 
-class BaseModel(Base):
-    pass
+    @staticmethod
+    def from_dict(source):
+        pass

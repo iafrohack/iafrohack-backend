@@ -3,6 +3,7 @@ from interface import implements
 from .interfaces.BlogsServiceInterface import BlogsServiceInterface
 from repositories.interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
 from typing import Dict, List
+import html
 
 class BlogsService(implements(BlogsServiceInterface)):
 
@@ -21,16 +22,18 @@ class BlogsService(implements(BlogsServiceInterface)):
         if not blog_post.id:
             return {}
 
-        blog_post_details = blog_post.content
+        blog_details = blog_post.to_dict()
+        blog_post_details = blog_details['details']
 
         return {
                 'id': blog_post.id,
                 'title':  blog_post_details['title'],
                 'summary': blog_post_details['summary'],
                 'backgroundImage': blog_post_details['background_image'],
-                'content': blog_post_details['content'],
-                'createdAt': blog_post.created_at.isoformat(' '),
-                'lastUpdatedAt': blog_post.last_updated_at.isoformat(' '),
+                'content': html.unescape(blog_post_details['content']),
+                'createdAt': blog_details['created_at'].isoformat(' '),
+                'lastUpdatedAt': blog_details['last_updated_at'].isoformat(' '),
+                'publishedAt': blog_details['published_at'].isoformat(' '),
                 }
 
 
@@ -39,18 +42,25 @@ class BlogsService(implements(BlogsServiceInterface)):
 
         all_blog_posts = []
 
-        for blog_details in blog_posts:
+        for blog_post in blog_posts:
 
-            blog_post_details = blog_details.content
+            #print(u'{} => {}'.format(blog_details.id, blog_details.to_dict()))
+
+            #print(blog_details)
+            blog_details = blog_post.to_dict()
+            blog_post_details = blog_details['details']
+
+            print(blog_post_details)
 
             all_blog_posts.append(
               {
-                'id': blog_details.id,
+                'id': blog_post.id,
                 'title':  blog_post_details['title'],
                 'summary': blog_post_details['summary'],
                 'backgroundImage': blog_post_details['background_image'],
-                'createdAt': blog_details.created_at.isoformat(' '),
-                'lastUpdatedAt': blog_details.last_updated_at.isoformat(' ')
+                'createdAt': blog_details['created_at'].isoformat(' '),
+                'lastUpdatedAt': blog_details['last_updated_at'].isoformat(' '),
+                'publishedAt': blog_details['published_at'].isoformat(' '),
              })
 
         return all_blog_posts
