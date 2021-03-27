@@ -2,10 +2,10 @@ from interface import implements
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from typing import Dict
-from .interfaces.LoggerInterface import LoggerInterface
+from app.loggers.interfaces.LoggerInterface import LoggerInterface
 from settings import LOGS_LOCATION_PATH
-from containers.HelpersContainer import HelpersContainer
-from .CoreLoggerWrapper import CoreLoggerWrapper
+from app.containers.HelpersContainer import HelpersContainer
+from app.loggers.CoreLoggerWrapper import CoreLoggerWrapper
 
 class RotatingLogsLogger(implements(LoggerInterface)):
 

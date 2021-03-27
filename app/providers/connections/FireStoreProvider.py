@@ -1,6 +1,5 @@
 from interface import implements
-from providers.connections.ConnectionsProviderInterface import ConnectionsProviderInterface
-import json
+from app.providers.connections.ConnectionsProviderInterface import ConnectionsProviderInterface
 from google.cloud import firestore
 
 # Connection provider for Google Firestore

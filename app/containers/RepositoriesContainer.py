@@ -2,9 +2,9 @@
 import dependency_injector.containers as containers
 import dependency_injector.providers as providers
 
-from repositories.BlogsRepository import BlogsRepository
+from app.repositories.BlogsRepository import BlogsRepository
 
-from .ConnectionsContainer import ConnectionsContainer
+from app.containers.ConnectionsContainer import ConnectionsContainer
 
 connections_container = ConnectionsContainer()
 

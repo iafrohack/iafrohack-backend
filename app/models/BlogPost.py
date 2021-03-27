@@ -1,5 +1,5 @@
 import datetime
-from models.Base import Base as BaseModel
+from app.models.Base import Base as BaseModel
 
 class BlogPost(BaseModel):
 

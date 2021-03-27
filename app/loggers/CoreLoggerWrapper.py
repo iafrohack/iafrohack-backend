@@ -1,6 +1,6 @@
 from logging import Logger
 import uuid
-from .CoreLogRecordWrapper import CoreLogRecordWrapper
+from app.loggers.CoreLogRecordWrapper import CoreLogRecordWrapper
 
 class CoreLoggerWrapper(Logger):
 

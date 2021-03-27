@@ -1,9 +1,8 @@
 
 import json
-from services.interfaces.BlogsServiceInterface import BlogsServiceInterface
-from services.interfaces.ApiResponseHandlerInterface import ApiResponseHandlerInterface
-from services.ApiResponseHandler import ApiResponseHandler
-from http import HTTPStatus
+from app.services.interfaces.BlogsServiceInterface import BlogsServiceInterface
+from app.services.interfaces.ApiResponseHandlerInterface import ApiResponseHandlerInterface
+from app.services.ApiResponseHandler import ApiResponseHandler
 from flask import Response
 
 class BlogsController(object):

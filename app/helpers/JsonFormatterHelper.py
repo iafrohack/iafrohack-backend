@@ -11,7 +11,7 @@ from bson.json_util import dumps
 import re
 from datetime import datetime
 from collections import OrderedDict
-from .JsonEncoderHelper import JsonEncoderHelper
+from app.helpers.JsonEncoderHelper import JsonEncoderHelper
 
 class JsonFormatterHelper(logging.Formatter):
     # skip natural LogRecord attributes

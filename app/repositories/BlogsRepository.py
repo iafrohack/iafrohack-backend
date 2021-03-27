@@ -1,7 +1,6 @@
 from interface import implements
-from .interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
-from models.BlogPost import BlogPost
-from providers.connections.ConnectionsProviderInterface import ConnectionsProviderInterface
+from app.repositories.interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
+from app.providers.connections.ConnectionsProviderInterface import ConnectionsProviderInterface
 from google.cloud import firestore
 
 class BlogsRepository(implements(BlogsRepositoryInterface)):

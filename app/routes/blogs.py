@@ -1,5 +1,5 @@
-from . import routes
-from containers.ControllersContainer import ControllersContainer
+from app.routes import *
+from app.containers.ControllersContainer import ControllersContainer
 
 controllers_container = ControllersContainer()
 

@@ -1,15 +1,8 @@
-
+# cloudbuild.yaml
 steps:
-- name: "docker/compose:1.24.0"
-  args: ["up", "-d", "--build"]
-- name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/$PROJECT_ID/iafrohack-backend:latest"]
-- name: 'gcr.io/cloud-builders/kubectl'
-  args:
-  - run
-  - iafrohack-backend
-  - --image=gcr.io/${PROJECT_ID}/iafrohack-backend:latest
-  - --port=5000
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=iafrohack-backend-cluster'
+  # build & push the container image
+- name: "gcr.io/kaniko-project/executor:latest"
+  args: ["--cache=true", "--cache-ttl=48h", "--destination=gcr.io/$PROJECT_ID/iafrohack-backend:latest"]
+  # Deploy container image to Cloud Run
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ['beta', 'run', 'deploy', 'iafrohack-backend', '--image', 'gcr.io/$PROJECT_ID/iafrohack-backend:latest', '--region', 'us-east1', '--allow-unauthenticated', '--platform', 'managed']

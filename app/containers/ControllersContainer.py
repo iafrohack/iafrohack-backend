@@ -2,8 +2,8 @@
 import dependency_injector.containers as containers
 import dependency_injector.providers as providers
 
-from .ServicesContainer import ServicesContainer
-from controllers.BlogsController import BlogsController
+from app.containers.ServicesContainer import ServicesContainer
+from app.controllers.BlogsController import BlogsController
 
 services_container = ServicesContainer()
 

@@ -1,7 +1,7 @@
 
 from interface import implements
-from .interfaces.BlogsServiceInterface import BlogsServiceInterface
-from repositories.interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
+from app.services.interfaces.BlogsServiceInterface import BlogsServiceInterface
+from app.repositories.interfaces.BlogsRepositoryInterface import BlogsRepositoryInterface
 from typing import Dict, List
 import html
 

@@ -1,13 +1,13 @@
 import dependency_injector.containers as containers
 import dependency_injector.providers as providers
-from helpers.NumbersHelper import NumbersHelper
-from helpers.JsonEncoderHelper import JsonEncoderHelper
-from helpers.JsonFormatterHelper import JsonFormatterHelper
-from helpers.RequestHelper import RequestHelper
-from helpers.SessionHelper import SessionHelper
+from app.helpers.NumbersHelper import NumbersHelper
+from app.helpers.JsonEncoderHelper import JsonEncoderHelper
+from app.helpers.JsonFormatterHelper import JsonFormatterHelper
+from app.helpers.RequestHelper import RequestHelper
+from app.helpers.SessionHelper import SessionHelper
 
 class HelpersContainer(containers.DeclarativeContainer):
-    """IoC container of Helpers."""
+    """IoC container of app.helpers."""
 
     numbers = providers.Factory(NumbersHelper)
     json_encoder = providers.Factory(JsonEncoderHelper)

@@ -1,12 +1,12 @@
 
 from interface import implements
-from .interfaces.ApiResponseHandlerInterface import ApiResponseHandlerInterface
+from app.services.interfaces.ApiResponseHandlerInterface import ApiResponseHandlerInterface
 from flask import Response, request, session
 import json
 from typing import Dict
 from http import HTTPStatus
-from containers.LoggersContainer import LoggersContainer
-from containers.HelpersContainer import HelpersContainer
+from app.containers.LoggersContainer import LoggersContainer
+from app.containers.HelpersContainer import HelpersContainer
 import traceback
 
 

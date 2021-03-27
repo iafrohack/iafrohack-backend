@@ -2,8 +2,8 @@
 import dependency_injector.containers as containers
 import dependency_injector.providers as providers
 
-from services.BlogsService import BlogsService
-from services.ApiResponseHandler import ApiResponseHandler
+from app.services.BlogsService import BlogsService
+from app.services.ApiResponseHandler import ApiResponseHandler
 
 from .RepositoriesContainer import RepositoriesContainer
 
